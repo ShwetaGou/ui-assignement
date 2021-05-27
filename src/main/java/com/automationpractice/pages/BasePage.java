@@ -16,7 +16,7 @@ public class BasePage extends Page {
 	@FindBy(className = "logout")
 	private WebElement signOutLink;
 
-	@FindBy(linkText = "Dresses")
+	@FindBy(css = "[class^='submenu-container']  a[title='Dresses']")
 	private WebElement dressesLink;
 
 	@FindBy(linkText = "Summer Dresses")
@@ -106,11 +106,17 @@ public class BasePage extends Page {
 	public WebElement getSummerDressesLink() {
 		return SummerDressesLink;
 	}
-	
-	public void selectValueFromDropDown(WebElement ele,String text)
-	{
-		Select select=new Select(ele);
+
+	public void selectValueFromDropDown(WebElement ele, String text) {
+		Select select = new Select(ele);
 		select.selectByVisibleText(text);
 	}
 
+	public void clickDressesLink() {
+		dressesLink.click();
+	}
+
+	public void clickSummerDressLink() {
+		SummerDressesLink.click();
+	}
 }

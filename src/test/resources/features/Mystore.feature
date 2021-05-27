@@ -18,7 +18,7 @@ Feature: Add products to cart and place the order
       | username              | password  | loggedinUserName            | category | product1              | product2 | total_amount | selectPaymentType |
       | assignment01@test.com | test@1234 | Shweta Goudar Siddalingappa | Women    | Printed Chiffon Dress | Blouse   | $45.40       | Pay by check.     |
 
-  @regresiontest @test
+  @regressiontest @test
   Scenario Outline: User adds product to cart and create an account and then place order
     Given user is on automation practice website
     And user selects Sub Category Dresses- Summer Dresses
