@@ -9,6 +9,7 @@ import com.automationpractice.pages.AddressPage;
 import com.automationpractice.pages.AuthenticationPage;
 import com.automationpractice.pages.BasePage;
 import com.automationpractice.pages.CreateAnAccountPage;
+import com.automationpractice.pages.DressesCategoryPage;
 import com.automationpractice.pages.HomePage;
 import com.automationpractice.pages.OrderConfirmationPage;
 import com.automationpractice.pages.OrderSummaryPage;
@@ -122,31 +123,33 @@ public class MyStoreStepDefinations {
 	@Given("user is on automation practice website")
 	public void user_is_on_automation_practice_website() {
 		basePage = page.getPageInstance(BasePage.class);
-//		basePage.waitForElementPresent(basePage.getDressesLink(), 5);
+		basePage.waitForElementPresent(basePage.getDressesLink(), 5);
 		
 	}
 
 	@Given("user selects Sub Category Dresses- Summer Dresses")
 	public void user_selects_Sub_Category_Dresses_Summer_Dresses() {
-		basePage.moveToElement(basePage.getDressesLink());
+		DressesCategoryPage dressesPage=basePage.clickDressesLink();		
+		dressesPage.clickSummerDressLink();
 
 	}
 
 	@Given("user adds products to cart and navigates to shopping cart summary  {string}")
-	public void user_adds_products_to_cart_and_navigates_to_shopping_cart_summary(String product) {
-		ProductsDailog productsDailog = womenPage.addItemToCart(product);
+	public void user_adds_products_to_cart_and_navigates_to_shopping_cart_summary(String product) {		
+		ProductsDailog productsDailog = new WomenCategoryPage(driver).addItemToCart(product);
 		shoppingCartSummryPage = productsDailog.clickProceedToCheckoutLink();
 	}
 
 	@Given("user enter {string} in signin page")
 	public void user_enter_in_signin_page(String email) {
+		email=basePage.getRandomNumber()+email;
 		authenticationPage = new AuthenticationPage(driver);
 		authenticationPage.enterEmailaddress(email);
 		createAnAccountPage = authenticationPage.clickCreateAccount();
 
 	}
 
-	@Given("user enter all the details to register to create account {string}  {string} {string}  {string}  {string}  {string} {string}  {string}")
+	@Given("user enter all the details to register to create account {string}  {string} {string}  {string}  {string}  {string}  {string} {string}")
 	public void user_enter_all_the_details_to_register_to_create_account(String firstname, String lastname,
 			String password, String address, String city, String state, String postcode, String mobphone) {
 
@@ -155,7 +158,8 @@ public class MyStoreStepDefinations {
 		basePage.enterDataInToField("password", basePage.getWebELement(By.id("passwd")), password);
 		basePage.enterDataInToField("address", basePage.getWebELement(By.id("address1")), address);
 		basePage.enterDataInToField("city", basePage.getWebELement(By.id("city")), city);
-		basePage.selectValueFromDropDown(basePage.getWebELement(By.id("postcode")), postcode);
+		basePage.selectValueFromDropDown(basePage.getWebELement(By.id("id_state")), state);
+		basePage.enterDataInToField("Postcode",basePage.getWebELement(By.id("postcode")), postcode);
 		basePage.enterDataInToField("Mobile Phone ", basePage.getWebELement(By.id("phone_mobile")), mobphone);
 		createAnAccountPage.RegisterAccount();
 
