@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class OrderSummaryPage extends BasePage {
 
-	@FindBy(xpath = "//*[text()='I confirm my order']/parent::button")
+	@FindBy(css =  "#cart_navigation > button")
 	private WebElement confirmMyOrderButton;
 
 	public OrderSummaryPage(WebDriver driver) {
@@ -16,7 +16,8 @@ public class OrderSummaryPage extends BasePage {
 	}
 
 	public OrderConfirmationPage confirmOrder() {
-		confirmMyOrderButton.click();
+			confirmMyOrderButton.click();
+		
 		return getPageInstance(OrderConfirmationPage.class);
 	}
 
