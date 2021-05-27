@@ -14,7 +14,7 @@ UI Tech assignment for WooliesX
 - Java
 - Maven
   
-# Setting up ShoppingAutomation
+# Setting up UI Automation
 - Install Java and set path.
 - Install Maven and set path.
 - Clone respective repository or download zip.
