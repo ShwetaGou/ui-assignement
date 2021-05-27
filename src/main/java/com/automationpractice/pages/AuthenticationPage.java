@@ -16,7 +16,7 @@ public class AuthenticationPage extends BasePage {
 	@FindBy(id="SubmitLogin")
 	private WebElement signinButton;
 	
-	@FindBy(css="[value='Create an account']")
+	@FindBy(id="SubmitCreate")
 	private WebElement createAnAccountButton;
 	
 	@FindBy(id="email_create")
