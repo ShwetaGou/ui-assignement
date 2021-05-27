@@ -25,7 +25,7 @@ Feature: Add products to cart and place the order
     And user adds products to cart and navigates to shopping cart summary  "<product>"
     And user proceed to checkout from shopping cart summary
     And user enter "<email>" in signin page
-    And user enter all the details to register to create account "<firstname>"  "<lastname>" "<password>"  "<address>"  "<city>"  "<state>" "<country>"  "<mobphone>"
+    And user enter all the details to register to create account "<firstname>"  "<lastname>" "<password>"  "<address>"  "<city>"  "<state>"  "<postcode>" "<mobphone>"
     And user proceed to checkout from Address page
     And user agrees to terms  and  proceed to checkout from shipping page
     And user verify the "<total_amount>" and select paymenttype "<selectPaymentType>" on payment page
@@ -34,5 +34,5 @@ Feature: Add products to cart and place the order
     And user logs out of the application
 
     Examples: 
-      | email           | password  | loggedinUserName            | category | product              | product2 | total_amount | selectPaymentType |
-      | test01@pink.com | test@1234 | Shweta Goudar Siddalingappa | Women    | Printed Summer Dress | Blouse   | $45.40       | Pay by check.     |
+      | email           | password  | firstname | lastname | address | city  | state    | postcode | mobphone   | product              | total_amount | selectPaymentType |
+      | test01@pink.com | test@1234 | jack      | ryan     | newyork | Adams | New York |    20021 | 1234567893 | Printed Summer Dress | $30.98       | Pay by check.     |

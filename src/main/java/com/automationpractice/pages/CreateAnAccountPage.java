@@ -20,8 +20,8 @@ public class CreateAnAccountPage extends BasePage {
 	@FindBy(id = "address1")
 	private WebElement address1Field;
 
-	@FindBy(id = "city")
-	private WebElement cityField;
+	@FindBy(id = "submitAccount")
+	private WebElement submitAccount;
 
 	public CreateAnAccountPage(WebDriver driver) {
 		super(driver);
@@ -40,11 +40,9 @@ public class CreateAnAccountPage extends BasePage {
 		passowrdField.sendKeys(password);
 	}
 
-	public void enterAddress1(String address1) {
-		
+	public void RegisterAccount() {
+
+		submitAccount.click();
 	}
-	
-	
-	
 
 }

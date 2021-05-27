@@ -122,14 +122,13 @@ public class MyStoreStepDefinations {
 	@Given("user is on automation practice website")
 	public void user_is_on_automation_practice_website() {
 		basePage = page.getPageInstance(BasePage.class);
-		AuthenticationPage authenticationPage = basePage.clickSigninLink();
-
+//		basePage.waitForElementPresent(basePage.getDressesLink(), 5);
+		
 	}
 
 	@Given("user selects Sub Category Dresses- Summer Dresses")
 	public void user_selects_Sub_Category_Dresses_Summer_Dresses() {
 		basePage.moveToElement(basePage.getDressesLink());
-		basePage.clickUsingActionClass(basePage.getSummerDressesLink());
 
 	}
 
@@ -148,19 +147,18 @@ public class MyStoreStepDefinations {
 	}
 
 	@Given("user enter all the details to register to create account {string}  {string} {string}  {string}  {string}  {string} {string}  {string}")
-	public void user_enter_all_the_details_to_register_to_create_account(String firstname, String lastname, String password,
-			String address, String city, String state, String country, String mobphone) {
-		
-			basePage.enterDataInToField("firstname", basePage.getWebELement(By.id("customer_firstname")), firstname);
-			basePage.enterDataInToField("lastname", basePage.getWebELement(By.id("customer_lastname")), lastname);
-			basePage.enterDataInToField("password", basePage.getWebELement(By.id("passwd")), password);
-			basePage.enterDataInToField("address", basePage.getWebELement(By.id("address1")), address);
-			basePage.enterDataInToField("city", basePage.getWebELement(By.id("city")), city);
-			
-			
-			basePage.enterDataInToField("firstname", basePage.getWebELement(By.id("")), firstname);
-			
-		
+	public void user_enter_all_the_details_to_register_to_create_account(String firstname, String lastname,
+			String password, String address, String city, String state, String postcode, String mobphone) {
+
+		basePage.enterDataInToField("firstname", basePage.getWebELement(By.id("customer_firstname")), firstname);
+		basePage.enterDataInToField("lastname", basePage.getWebELement(By.id("customer_lastname")), lastname);
+		basePage.enterDataInToField("password", basePage.getWebELement(By.id("passwd")), password);
+		basePage.enterDataInToField("address", basePage.getWebELement(By.id("address1")), address);
+		basePage.enterDataInToField("city", basePage.getWebELement(By.id("city")), city);
+		basePage.selectValueFromDropDown(basePage.getWebELement(By.id("postcode")), postcode);
+		basePage.enterDataInToField("Mobile Phone ", basePage.getWebELement(By.id("phone_mobile")), mobphone);
+		createAnAccountPage.RegisterAccount();
+
 	}
 
 }
