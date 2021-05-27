@@ -35,4 +35,4 @@ Feature: Add products to cart and place the order
 
     Examples: 
       | email           | password  | firstname | lastname | address | city  | state    | postcode | mobphone   | product              | total_amount | selectPaymentType |
-      | test01@pink.com | test@1234 | jack      | ryan     | newyork | Adams | New York |    20021 | 1234567893 | Printed Summer Dress | $30.98       | Pay by check.     |
+      | test03@pink.com | test@1234 | jack      | ryan     | newyork | Adams | New York |    20021 | 1234567893 | Printed Summer Dress | $30.98       | Pay by check.     |
